@@ -10,22 +10,10 @@ var corsMiddleware = function(req, res, next) {
     next();
 }
 
-
-// const filtro = document.getElementById('filtro');
-// const lista = document.getElementById('lista');
-// const itens = Array.from(document.querySelectorAll('#lista li'));
-
-// filtro.addEventListener('input', () => {
-//   const texto = filtro.value.toLowerCase();
-//   const itensFiltrados = itens.filter(item => item.textContent.toLowerCase().includes(texto));
-//   lista.innerHTML = '';
-//   itensFiltrados.forEach(item => lista.appendChild(item));
-// });
-
 app.use(corsMiddleware);
 
 app.get('/', (req, res) => {
-    res.status(200).json({ message: `Hello, ${req.query.name}!` });
+    res.status(200).json({ message: `Hello, ${JSON.stringify(req.query)}!` });
 });
 
 app.listen(port, () => {
